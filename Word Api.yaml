@@ -174,24 +174,29 @@ paths:
             examples:
               WordDTO:
                 value:
+                  id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
                   name: welcome
                   description: simply dummy text of the printing and typesetting industry
                   langCode: en-us
                   sysnonym:
-                  - name: hi
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: hi
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: en-us
-                  - name: Yo
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: Yo
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: en-us
                   mean:
-                  - name: xin chao
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: xin chao
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: vi
-                  - name: chao
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: chao
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: vi
