@@ -253,9 +253,7 @@ components:
         of phonemes
       type: object
       allOf:
-      - required:
-        - name
-        - id
+      - required: []
         type: object
         properties:
           id:
@@ -305,6 +303,8 @@ components:
       description: Create a Word
       required:
       - mean
+      - name
+      - langCode
       type: object
       properties:
         name:
@@ -318,10 +318,12 @@ components:
           description: ISO language codes, conforming to the ISO 639-1 standard
           type: string
         sysnonym:
+          description: List a word same meaning in same langugae code
           type: array
           items:
             $ref: '#/components/schemas/Word'
         mean:
+          description: List a word same meaning in different langugae code
           type: array
           items:
             $ref: '#/components/schemas/Word'
@@ -350,15 +352,23 @@ components:
     UpdateWordCommand:
       title: Root Type for UpdateWordCommand
       description: Command update a word
+      required:
+      - Id
+      - langCode
       type: object
       properties:
         name:
+          description: Name of word
           type: string
         description:
+          description: Pattern of narrative development that aims to make vivid a
+            place
           type: string
         langCode:
+          description: ISO language codes, conforming to the ISO 639-1 standard
           type: string
         sysnonym:
+          description: List a word same meaning in same langugae code
           type: array
           items:
             type: object
@@ -370,6 +380,7 @@ components:
               langCode:
                 type: string
         mean:
+          description: List a word same meaning in different langugae code
           type: array
           items:
             type: object
@@ -380,21 +391,29 @@ components:
                 type: string
               langCode:
                 type: string
+        Id:
+          description: Unique Id
+          type: string
       example:
+        id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
         name: welcome
         description: simply dummy text of the printing and typesetting industry
         langCode: en-us
         sysnonym:
-        - name: hi
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: hi
           description: simply dummy text of the printing and typesetting industry
           langCode: en-us
-        - name: Yo
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: Yo
           description: simply dummy text of the printing and typesetting industry
           langCode: en-us
         mean:
-        - name: xin chao
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: xin chao
           description: simply dummy text of the printing and typesetting industry
           langCode: vi
-        - name: chao
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: chao
           description: simply dummy text of the printing and typesetting industry
           langCode: vi
