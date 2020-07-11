@@ -1,0 +1,125 @@
+---
+openapi: 3.0.2
+info:
+  title: Word Api
+  version: 1.0.0
+  description: Show word and modified word
+paths:
+  /words:
+    summary: Path used to manage the list of words.
+    description: The REST endpoint/path used to list and create zero or more `Word`
+      entities.  This path contains a `GET` and `POST` operation to perform the list
+      and create tasks, respectively.
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Word'
+          description: Successful response - returns an array of `Word` entities.
+      operationId: getwords
+      summary: List All words
+      description: Gets a list of all `Word` entities.
+    post:
+      requestBody:
+        description: A new `Word` to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Word'
+        required: true
+      responses:
+        "201":
+          description: Successful response.
+      operationId: createWord
+      summary: Create a Word
+      description: Creates a new instance of a `Word`.
+  /words/{wordId}:
+    summary: Path used to manage a single Word.
+    description: The REST endpoint/path used to get, update, and delete single instances
+      of an `Word`.  This path contains `GET`, `PUT`, and `DELETE` operations used
+      to perform the get, update, and delete tasks, respectively.
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Word'
+          description: Successful response - returns a single `Word`.
+      operationId: getWord
+      summary: Get a Word
+      description: Gets the details of a single instance of a `Word`.
+    put:
+      requestBody:
+        description: Updated `Word` information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Word'
+        required: true
+      responses:
+        "202":
+          description: Successful response.
+      operationId: updateWord
+      summary: Update a Word
+      description: Updates an existing `Word`.
+    delete:
+      responses:
+        "204":
+          description: Successful response.
+      operationId: deleteWord
+      summary: Delete a Word
+      description: Deletes an existing `Word`.
+    parameters:
+    - name: wordId
+      description: A unique identifier for a `Word`.
+      schema:
+        type: string
+      in: path
+      required: true
+components:
+  schemas:
+    Word:
+      title: Root Type for Word
+      description: Word Domain
+      type: object
+      properties:
+        id:
+          description: Unique Id word
+          type: string
+        name:
+          description: name of word
+          type: string
+        sysnonym:
+          description: sysnonym of word. word could contain many sysnonym
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+        mean:
+          description: meaning of word
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+      example:
+        id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+        name: hello
+        sysnonym:
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: hi
+        mean:
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: xin chao
