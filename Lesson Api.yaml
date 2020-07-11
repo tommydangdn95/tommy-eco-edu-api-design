@@ -1,0 +1,141 @@
+---
+openapi: 3.0.2
+info:
+  title: Lesson Api
+  version: 1.0.0
+  description: Lesson Api allow show list and modified lesson
+paths:
+  /lessons:
+    summary: Path used to manage the list of lessons.
+    description: The REST endpoint/path used to list and create zero or more `Lesson`
+      entities.  This path contains a `GET` and `POST` operation to perform the list
+      and create tasks, respectively.
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+          description: Successful response - returns an array of `Lesson` entities.
+      operationId: getlessons
+      summary: List All lessons
+      description: Gets a list of all `Lesson` entities.
+    post:
+      requestBody:
+        description: A new `Lesson` to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLessonCommand'
+            examples:
+              lesson:
+                value:
+                  name: Lesson 7
+                  isUsed: true
+        required: true
+      responses:
+        "201":
+          description: Successful response.
+      operationId: createLesson
+      summary: Create a Lesson
+      description: Creates a new instance of a `Lesson`.
+  /lessons/{lessonId}:
+    summary: Path used to manage a single Lesson.
+    description: The REST endpoint/path used to get, update, and delete single instances
+      of an `Lesson`.  This path contains `GET`, `PUT`, and `DELETE` operations used
+      to perform the get, update, and delete tasks, respectively.
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+          description: Successful response - returns a single `Lesson`.
+      operationId: getLesson
+      summary: Get a Lesson
+      description: Gets the details of a single instance of a `Lesson`.
+    put:
+      requestBody:
+        description: Updated `Lesson` information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateLessonCommand'
+            examples:
+              lesson:
+                value:
+                  id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                  name: lesson 7
+                  isUsed: true
+        required: true
+      responses:
+        "202":
+          description: Successful response.
+      operationId: updateLesson
+      summary: Update a Lesson
+      description: Updates an existing `Lesson`.
+    delete:
+      responses:
+        "204":
+          description: Successful response.
+      operationId: deleteLesson
+      summary: Delete a Lesson
+      description: Deletes an existing `Lesson`.
+    parameters:
+    - examples:
+        GuiId:
+          value: '"b49dee5b-3b26-4b8f-acdc-11033c6ed7ac"'
+      name: lessonId
+      description: A unique identifier for a `Lesson`.
+      schema:
+        type: string
+      in: path
+      required: true
+components:
+  schemas:
+    Lesson:
+      title: Root Type for Lesson
+      description: ""
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isUsed:
+          type: boolean
+      example:
+        id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+        name: lesson 6
+        isUsed: true
+    CreateLessonCommand:
+      title: Root Type for CreateLessonCommand
+      description: Model request create a lesson
+      type: object
+      properties:
+        name:
+          type: string
+        isUsed:
+          type: boolean
+      example:
+        name: lesson 6
+        isUsed: true
+    UpdateLessonCommand:
+      title: Root Type for UpdateLessonCommand
+      description: Model modified lesson
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isUsed:
+          type: boolean
+      example:
+        id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+        name: lesson 6
+        isUsed: true
