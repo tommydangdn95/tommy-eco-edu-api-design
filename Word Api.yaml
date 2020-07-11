@@ -274,13 +274,13 @@ components:
           langCode:
             description: ISO language codes, conforming to the ISO 639-1 standard
             type: string
-          sysnonym:
-            description: list word with same meaning
+          mean:
+            description: list words with difference language code
             type: array
             items:
               $ref: '#/components/schemas/Word'
-          mean:
-            description: list words with difference language code
+          synonym:
+            description: list word with same meaning
             type: array
             items:
               $ref: '#/components/schemas/Word'
@@ -291,7 +291,7 @@ components:
         description: Lorem Ipsum is simply dummy text of the printing and typesetting
           industry
         langCode: en-us
-        sysnonym:
+        synonym:
         - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
           name: hi
           description: Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -322,13 +322,13 @@ components:
         langCode:
           description: ISO language codes, conforming to the ISO 639-1 standard
           type: string
-        sysnonym:
-          description: List a word same meaning in same langugae code
+        mean:
+          description: List a word same meaning in different langugae code
           type: array
           items:
             $ref: '#/components/schemas/Word'
-        mean:
-          description: List a word same meaning in different langugae code
+        synonym:
+          description: List a word same meaning in same langugae code
           type: array
           items:
             $ref: '#/components/schemas/Word'
@@ -336,7 +336,7 @@ components:
         name: welcome
         description: simply dummy text of the printing and typesetting industry
         langCode: en-us
-        sysnonym:
+        synonym:
         - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
           name: hi
           description: simply dummy text of the printing and typesetting industry
@@ -372,18 +372,6 @@ components:
         langCode:
           description: ISO language codes, conforming to the ISO 639-1 standard
           type: string
-        sysnonym:
-          description: List a word same meaning in same langugae code
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              description:
-                type: string
-              langCode:
-                type: string
         mean:
           description: List a word same meaning in different langugae code
           type: array
@@ -399,12 +387,24 @@ components:
         Id:
           description: Unique Id
           type: string
+        synonym:
+          description: List a word same meaning in same langugae code
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              langCode:
+                type: string
       example:
         id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
         name: welcome
         description: simply dummy text of the printing and typesetting industry
         langCode: en-us
-        sysnonym:
+        synonym:
         - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
           name: hi
           description: simply dummy text of the printing and typesetting industry
