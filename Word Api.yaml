@@ -86,33 +86,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Word'
+              $ref: '#/components/schemas/CreateWordCommand'
             examples:
-              word:
+              WordCommand:
                 value:
-                  id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
                   name: welcome
                   description: simply dummy text of the printing and typesetting industry
                   langCode: en-us
                   sysnonym:
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: hi
+                  - name: hi
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: en-us
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: Yo
+                  - name: Yo
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: en-us
                   mean:
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: xin chao
+                  - name: xin chao
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: vi
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: chao
+                  - name: chao
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: vi
@@ -175,33 +170,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Word'
+              $ref: '#/components/schemas/UpdateWordCommand'
             examples:
-              word:
+              WordDTO:
                 value:
-                  id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
                   name: welcome
                   description: simply dummy text of the printing and typesetting industry
                   langCode: en-us
                   sysnonym:
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: hi
+                  - name: hi
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: en-us
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: Yo
+                  - name: Yo
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: en-us
                   mean:
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: xin chao
+                  - name: xin chao
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: vi
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: chao ban
+                  - name: chao
                     description: simply dummy text of the printing and typesetting
                       industry
                     langCode: vi
@@ -235,15 +225,21 @@ components:
       title: Root Type for Morphemes
       description: The basic unit of morphology, are the smallest meaningful unit
         of language
+      required: []
       type: object
       properties:
         id:
+          description: Unique Id
           type: string
         name:
+          description: Name of morphemes
           type: string
         description:
+          description: Pattern of narrative development that aims to make vivid a
+            place
           type: string
         langCode:
+          description: ISO language codes, conforming to the ISO 639-1 standard
           type: string
       example:
         id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
@@ -257,13 +253,16 @@ components:
         of phonemes
       type: object
       allOf:
-      - type: object
+      - required:
+        - name
+        - id
+        type: object
         properties:
           id:
             description: Unique Id
             type: string
           name:
-            description: 'list word with same meaning '
+            description: name of word
             type: string
           description:
             description: Pattern of narrative development that aims to make vivid
@@ -273,32 +272,15 @@ components:
             description: ISO language codes, conforming to the ISO 639-1 standard
             type: string
           sysnonym:
+            description: list word with same meaning
             type: array
             items:
-              type: object
-              properties:
-                id:
-                  type: string
-                name:
-                  type: string
-                description:
-                  type: string
-                langCode:
-                  type: string
+              $ref: '#/components/schemas/Word'
           mean:
             description: list words with difference language code
             type: array
             items:
-              type: object
-              properties:
-                id:
-                  type: string
-                name:
-                  type: string
-                description:
-                  type: string
-                langCode:
-                  type: string
+              $ref: '#/components/schemas/Word'
       - $ref: '#/components/schemas/Morphemes'
       example:
         id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
@@ -317,4 +299,102 @@ components:
           name: xin chao
           description: Lorem Ipsum is simply dummy text of the printing and typesetting
             industry
+          langCode: vi
+    CreateWordCommand:
+      title: Root Type for CreateWordCommand
+      description: Create a Word
+      required:
+      - mean
+      type: object
+      properties:
+        name:
+          description: Name of word
+          type: string
+        description:
+          description: Pattern of narrative development that aims to make vivid a
+            place
+          type: string
+        langCode:
+          description: ISO language codes, conforming to the ISO 639-1 standard
+          type: string
+        sysnonym:
+          type: array
+          items:
+            $ref: '#/components/schemas/Word'
+        mean:
+          type: array
+          items:
+            $ref: '#/components/schemas/Word'
+      example:
+        name: welcome
+        description: simply dummy text of the printing and typesetting industry
+        langCode: en-us
+        sysnonym:
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: hi
+          description: simply dummy text of the printing and typesetting industry
+          langCode: en-us
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: Yo
+          description: simply dummy text of the printing and typesetting industry
+          langCode: en-us
+        mean:
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: xin chao
+          description: simply dummy text of the printing and typesetting industry
+          langCode: vi
+        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+          name: chao
+          description: simply dummy text of the printing and typesetting industry
+          langCode: vi
+    UpdateWordCommand:
+      title: Root Type for UpdateWordCommand
+      description: Command update a word
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        langCode:
+          type: string
+        sysnonym:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              langCode:
+                type: string
+        mean:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              langCode:
+                type: string
+      example:
+        name: welcome
+        description: simply dummy text of the printing and typesetting industry
+        langCode: en-us
+        sysnonym:
+        - name: hi
+          description: simply dummy text of the printing and typesetting industry
+          langCode: en-us
+        - name: Yo
+          description: simply dummy text of the printing and typesetting industry
+          langCode: en-us
+        mean:
+        - name: xin chao
+          description: simply dummy text of the printing and typesetting industry
+          langCode: vi
+        - name: chao
+          description: simply dummy text of the printing and typesetting industry
           langCode: vi
