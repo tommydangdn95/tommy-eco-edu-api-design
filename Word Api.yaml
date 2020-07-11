@@ -5,7 +5,7 @@ info:
   version: 1.0.0
   description: Show word and modified word
 paths:
-  /words:
+  /word:
     summary: Path used to manage the list of words.
     description: The REST endpoint/path used to list and create zero or more `Word`
       entities.  This path contains a `GET` and `POST` operation to perform the list
@@ -19,6 +19,63 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Word'
+              examples:
+                words:
+                  value:
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: welcome
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: en-us
+                    sysnonym:
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: hi
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: en-us
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: Yo
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: en-us
+                    mean:
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: xin chao
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: vi
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: chao
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: vi
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: welcome
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: en-us
+                    sysnonym:
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: hi
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: en-us
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: Yo
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: en-us
+                    mean:
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: xin chao
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: vi
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: chao
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: vi
           description: Successful response - returns an array of `Word` entities.
       operationId: getwords
       summary: List All words
@@ -30,6 +87,35 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Word'
+            examples:
+              word:
+                value:
+                  id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                  name: welcome
+                  description: simply dummy text of the printing and typesetting industry
+                  langCode: en-us
+                  sysnonym:
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: hi
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: en-us
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: Yo
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: en-us
+                  mean:
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: xin chao
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: vi
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: chao
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: vi
         required: true
       responses:
         "201":
@@ -37,7 +123,7 @@ paths:
       operationId: createWord
       summary: Create a Word
       description: Creates a new instance of a `Word`.
-  /words/{wordId}:
+  /word/{wordId}:
     summary: Path used to manage a single Word.
     description: The REST endpoint/path used to get, update, and delete single instances
       of an `Word`.  This path contains `GET`, `PUT`, and `DELETE` operations used
@@ -49,6 +135,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Word'
+              examples:
+                word:
+                  value:
+                    id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: welcome
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: en-us
+                    sysnonym:
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: hi
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: en-us
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: Yo
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: en-us
+                    mean:
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: xin chao
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: vi
+                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                      name: chao
+                      description: simply dummy text of the printing and typesetting
+                        industry
+                      langCode: vi
           description: Successful response - returns a single `Word`.
       operationId: getWord
       summary: Get a Word
@@ -60,6 +176,35 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Word'
+            examples:
+              word:
+                value:
+                  id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                  name: welcome
+                  description: simply dummy text of the printing and typesetting industry
+                  langCode: en-us
+                  sysnonym:
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: hi
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: en-us
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: Yo
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: en-us
+                  mean:
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: xin chao
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: vi
+                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+                    name: chao ban
+                    description: simply dummy text of the printing and typesetting
+                      industry
+                    langCode: vi
         required: true
       responses:
         "202":
@@ -75,7 +220,10 @@ paths:
       summary: Delete a Word
       description: Deletes an existing `Word`.
     parameters:
-    - name: wordId
+    - examples:
+        GuiId:
+          value: '"b49dee5b-3b26-4b8f-acdc-11033c6ed7ac"'
+      name: wordId
       description: A unique identifier for a `Word`.
       schema:
         type: string
@@ -83,43 +231,90 @@ paths:
       required: true
 components:
   schemas:
-    Word:
-      title: Root Type for Word
-      description: Word Domain
+    Morphemes:
+      title: Root Type for Morphemes
+      description: The basic unit of morphology, are the smallest meaningful unit
+        of language
       type: object
       properties:
         id:
-          description: Unique Id word
           type: string
         name:
-          description: name of word
           type: string
-        sysnonym:
-          description: sysnonym of word. word could contain many sysnonym
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
-        mean:
-          description: meaning of word
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              name:
-                type: string
+        description:
+          type: string
+        langCode:
+          type: string
       example:
         id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
         name: hello
+        description: Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry
+        langCode: en-us
+    Word:
+      title: Root Type for Word
+      description: A word of a spoken language can be defined as the smallest sequence
+        of phonemes
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Unique Id
+            type: string
+          name:
+            description: 'list word with same meaning '
+            type: string
+          description:
+            description: Pattern of narrative development that aims to make vivid
+              a place
+            type: string
+          langCode:
+            description: ISO language codes, conforming to the ISO 639-1 standard
+            type: string
+          sysnonym:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
+                langCode:
+                  type: string
+          mean:
+            description: list words with difference language code
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
+                langCode:
+                  type: string
+      - $ref: '#/components/schemas/Morphemes'
+      example:
+        id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+        name: hello
+        description: Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry
+        langCode: en-us
         sysnonym:
         - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
           name: hi
+          description: Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry
+          langCode: en-us
         mean:
         - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
           name: xin chao
+          description: Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry
+          langCode: vi
