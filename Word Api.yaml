@@ -4,6 +4,12 @@ info:
   title: Word Api
   version: 1.0.0
   description: Show word and modified word
+  contact:
+    name: Tommy Dang
+    email: sinhvienbk13@gmail.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
 paths:
   /word:
     summary: Path used to manage the list of words.
@@ -226,10 +232,10 @@ paths:
       required: true
 components:
   schemas:
-    Morphemes:
-      title: Root Type for Morphemes
-      description: The basic unit of morphology, are the smallest meaningful unit
-        of language
+    Word:
+      title: Root Type for Word
+      description: A word of a spoken language can be defined as the smallest sequence
+        of phonemes
       required: []
       type: object
       properties:
@@ -237,7 +243,7 @@ components:
           description: Unique Id
           type: string
         name:
-          description: Name of morphemes
+          description: name of word
           type: string
         description:
           description: Pattern of narrative development that aims to make vivid a
@@ -246,45 +252,16 @@ components:
         langCode:
           description: ISO language codes, conforming to the ISO 639-1 standard
           type: string
-      example:
-        id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-        name: hello
-        description: Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry
-        langCode: en-us
-    Word:
-      title: Root Type for Word
-      description: A word of a spoken language can be defined as the smallest sequence
-        of phonemes
-      type: object
-      allOf:
-      - required: []
-        type: object
-        properties:
-          id:
-            description: Unique Id
-            type: string
-          name:
-            description: name of word
-            type: string
-          description:
-            description: Pattern of narrative development that aims to make vivid
-              a place
-            type: string
-          langCode:
-            description: ISO language codes, conforming to the ISO 639-1 standard
-            type: string
-          mean:
-            description: list words with difference language code
-            type: array
-            items:
-              $ref: '#/components/schemas/Word'
-          synonym:
-            description: list word with same meaning
-            type: array
-            items:
-              $ref: '#/components/schemas/Word'
-      - $ref: '#/components/schemas/Morphemes'
+        mean:
+          description: list words with difference language code
+          type: array
+          items:
+            $ref: '#/components/schemas/Word'
+        synonym:
+          description: list word with same meaning
+          type: array
+          items:
+            $ref: '#/components/schemas/Word'
       example:
         id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
         name: hello
@@ -337,21 +314,17 @@ components:
         description: simply dummy text of the printing and typesetting industry
         langCode: en-us
         synonym:
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: hi
+        - name: hi
           description: simply dummy text of the printing and typesetting industry
           langCode: en-us
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: Yo
+        - name: Yo
           description: simply dummy text of the printing and typesetting industry
           langCode: en-us
         mean:
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: xin chao
+        - name: xin chao
           description: simply dummy text of the printing and typesetting industry
           langCode: vi
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: chao
+        - name: chao
           description: simply dummy text of the printing and typesetting industry
           langCode: vi
     UpdateWordCommand:
