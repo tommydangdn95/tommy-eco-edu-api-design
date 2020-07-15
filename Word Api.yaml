@@ -11,7 +11,7 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
 paths:
-  /word:
+  /words:
     summary: Path used to manage the list of words.
     description: The REST endpoint/path used to list and create zero or more `Word`
       entities.  This path contains a `GET` and `POST` operation to perform the list
@@ -29,59 +29,15 @@ paths:
                 words:
                   value:
                   - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: welcome
-                    description: simply dummy text of the printing and typesetting
-                      industry
+                    name: hello
+                    description: Lorem Ipsum is simply dummy text of the printing
+                      and typesetting industry
                     langCode: en-us
-                    sysnonym:
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: hi
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: en-us
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: Yo
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: en-us
-                    mean:
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: xin chao
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: vi
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: chao
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: vi
                   - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: welcome
-                    description: simply dummy text of the printing and typesetting
-                      industry
+                    name: hi
+                    description: Lorem Ipsum is simply dummy text of the printing
+                      and typesetting industry
                     langCode: en-us
-                    sysnonym:
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: hi
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: en-us
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: Yo
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: en-us
-                    mean:
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: xin chao
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: vi
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: chao
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: vi
           description: Successful response - returns an array of `Word` entities.
       operationId: getwords
       summary: List All words
@@ -94,29 +50,12 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateWordCommand'
             examples:
-              WordCommand:
+              word:
                 value:
-                  name: welcome
-                  description: simply dummy text of the printing and typesetting industry
+                  name: hello
+                  description: Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry
                   langCode: en-us
-                  sysnonym:
-                  - name: hi
-                    description: simply dummy text of the printing and typesetting
-                      industry
-                    langCode: en-us
-                  - name: Yo
-                    description: simply dummy text of the printing and typesetting
-                      industry
-                    langCode: en-us
-                  mean:
-                  - name: xin chao
-                    description: simply dummy text of the printing and typesetting
-                      industry
-                    langCode: vi
-                  - name: chao
-                    description: simply dummy text of the printing and typesetting
-                      industry
-                    langCode: vi
         required: true
       responses:
         "201":
@@ -124,7 +63,7 @@ paths:
       operationId: createWord
       summary: Create a Word
       description: Creates a new instance of a `Word`.
-  /word/{wordId}:
+  /words/{wordId}:
     summary: Path used to manage a single Word.
     description: The REST endpoint/path used to get, update, and delete single instances
       of an `Word`.  This path contains `GET`, `PUT`, and `DELETE` operations used
@@ -140,32 +79,10 @@ paths:
                 word:
                   value:
                     id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: welcome
-                    description: simply dummy text of the printing and typesetting
-                      industry
+                    name: hello
+                    description: Lorem Ipsum is simply dummy text of the printing
+                      and typesetting industry
                     langCode: en-us
-                    sysnonym:
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: hi
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: en-us
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: Yo
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: en-us
-                    mean:
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: xin chao
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: vi
-                    - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                      name: chao
-                      description: simply dummy text of the printing and typesetting
-                        industry
-                      langCode: vi
           description: Successful response - returns a single `Word`.
       operationId: getWord
       summary: Get a Word
@@ -176,36 +93,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateWordCommand'
+              $ref: '#/components/schemas/Word'
             examples:
-              WordDTO:
+              word:
                 value:
                   id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                  name: welcome
-                  description: simply dummy text of the printing and typesetting industry
+                  name: hello
+                  description: Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry
                   langCode: en-us
-                  sysnonym:
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: hi
-                    description: simply dummy text of the printing and typesetting
-                      industry
-                    langCode: en-us
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: Yo
-                    description: simply dummy text of the printing and typesetting
-                      industry
-                    langCode: en-us
-                  mean:
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: xin chao
-                    description: simply dummy text of the printing and typesetting
-                      industry
-                    langCode: vi
-                  - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-                    name: chao
-                    description: simply dummy text of the printing and typesetting
-                      industry
-                    langCode: vi
         required: true
       responses:
         "202":
@@ -222,7 +118,7 @@ paths:
       description: Deletes an existing `Word`.
     parameters:
     - examples:
-        GuiId:
+        Id:
           value: '"b49dee5b-3b26-4b8f-acdc-11033c6ed7ac"'
       name: wordId
       description: A unique identifier for a `Word`.
@@ -234,16 +130,14 @@ components:
   schemas:
     Word:
       title: Root Type for Word
-      description: A word of a spoken language can be defined as the smallest sequence
-        of phonemes
-      required: []
+      description: Unit of language
       type: object
       properties:
         id:
           description: Unique Id
           type: string
         name:
-          description: name of word
+          description: Name of Word
           type: string
         description:
           description: Pattern of narrative development that aims to make vivid a
@@ -252,45 +146,22 @@ components:
         langCode:
           description: ISO language codes, conforming to the ISO 639-1 standard
           type: string
-        mean:
-          description: list words with difference language code
-          type: array
-          items:
-            $ref: '#/components/schemas/Word'
-        synonym:
-          description: list word with same meaning
-          type: array
-          items:
-            $ref: '#/components/schemas/Word'
       example:
         id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
         name: hello
         description: Lorem Ipsum is simply dummy text of the printing and typesetting
           industry
         langCode: en-us
-        synonym:
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: hi
-          description: Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
-          langCode: en-us
-        mean:
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: xin chao
-          description: Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
-          langCode: vi
     CreateWordCommand:
       title: Root Type for CreateWordCommand
-      description: Create a Word
+      description: Command create a word
       required:
-      - mean
       - name
       - langCode
       type: object
       properties:
         name:
-          description: Name of word
+          description: Name of Word
           type: string
         description:
           description: Pattern of narrative development that aims to make vivid a
@@ -299,99 +170,37 @@ components:
         langCode:
           description: ISO language codes, conforming to the ISO 639-1 standard
           type: string
-        mean:
-          description: List a word same meaning in different langugae code
-          type: array
-          items:
-            $ref: '#/components/schemas/Word'
-        synonym:
-          description: List a word same meaning in same langugae code
-          type: array
-          items:
-            $ref: '#/components/schemas/Word'
-      example:
-        name: welcome
-        description: simply dummy text of the printing and typesetting industry
-        langCode: en-us
-        synonym:
-        - name: hi
-          description: simply dummy text of the printing and typesetting industry
-          langCode: en-us
-        - name: Yo
-          description: simply dummy text of the printing and typesetting industry
-          langCode: en-us
-        mean:
-        - name: xin chao
-          description: simply dummy text of the printing and typesetting industry
-          langCode: vi
-        - name: chao
-          description: simply dummy text of the printing and typesetting industry
-          langCode: vi
-    UpdateWordCommand:
-      title: Root Type for UpdateWordCommand
-      description: Command update a word
-      required:
-      - Id
-      - langCode
-      type: object
-      properties:
-        name:
-          description: Name of word
-          type: string
-        description:
-          description: Pattern of narrative development that aims to make vivid a
-            place
-          type: string
-        langCode:
-          description: ISO language codes, conforming to the ISO 639-1 standard
-          type: string
-        mean:
-          description: List a word same meaning in different langugae code
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              description:
-                type: string
-              langCode:
-                type: string
-        Id:
-          description: Unique Id
-          type: string
-        synonym:
-          description: List a word same meaning in same langugae code
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              description:
-                type: string
-              langCode:
-                type: string
       example:
         id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-        name: welcome
-        description: simply dummy text of the printing and typesetting industry
+        name: hello
+        description: Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry
         langCode: en-us
-        synonym:
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: hi
-          description: simply dummy text of the printing and typesetting industry
-          langCode: en-us
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: Yo
-          description: simply dummy text of the printing and typesetting industry
-          langCode: en-us
-        mean:
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: xin chao
-          description: simply dummy text of the printing and typesetting industry
-          langCode: vi
-        - id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
-          name: chao
-          description: simply dummy text of the printing and typesetting industry
-          langCode: vi
+    UdpateWordCommand:
+      title: Root Type for UdpateWordCommand
+      description: Update a word command
+      required:
+      - id
+      - langCode
+      - name
+      type: object
+      properties:
+        id:
+          description: Unique Id
+          type: string
+        name:
+          description: Name of Word
+          type: string
+        description:
+          description: Pattern of narrative development that aims to make vivid a
+            place
+          type: string
+        langCode:
+          description: ISO language codes, conforming to the ISO 639-1 standard
+          type: string
+      example:
+        id: b49dee5b-3b26-4b8f-acdc-11033c6ed7ac
+        name: hi
+        description: Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry
+        langCode: en-us
